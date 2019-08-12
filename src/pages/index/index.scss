@@ -4,6 +4,26 @@ body {
     background-color: $bgGrey;
 }
 
+h2{
+    border-top: $borderStyle;
+    margin: 50px 0 10px;
+    padding: 10px 0;
+}
+
 div.inner-center{
     text-align: center;
+}
+
+
+div.sel2 p.sel3{
+    color: red;
+}
+p.sel3{
+    color: green;
+}
+.sel3{
+    color: yellow;
+}
+#sel3-id{
+    color: purple;
 }

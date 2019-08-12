@@ -7,18 +7,28 @@
     <title>page index</title>
 </head>
 <body>
-    <nav>
-        <a href="/index.html">首页</a>
-        <a href="/layout.html">布局</a>
-    </nav>
+    <div id="container">
+        <nav>
+            <a href="/index.html">首页</a>
+            <a href="/layout.html">布局</a>
+        </nav>
+    
+        <h2>行内居中</h2>
+        <div class="inner-center">hello, world.</div>
+    
+        <h2>块内居中</h2>
+        <div class="block-center"></div>
 
-    <h1>行内居中</h1>
-    <div class="inner-center">hello, world.</div>
+        <h2>选择器</h2>
+        <div class="select-cnt">
+            <div class="sel1">
+                <div class="sel2">
+                    <p class="sel3" id="sel3-id">winter is coming.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <h1>块内居中</h1>
-    <div class="block-center"></div>
-
-
-<script type="text/javascript" src="/libs/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="/libs/jquery-1.11.1.js"></script>
 </body>
 </html>
