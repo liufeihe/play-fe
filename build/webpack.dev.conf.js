@@ -7,7 +7,9 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const getEntries = ()=>{
     return {
         index: './src/pages/index/index.es6',
-        layout: './src/pages/layout/layout.es6'
+        layout: './src/pages/layout/layout.es6',
+        js: './src/pages/js/js.es6',
+        es6: './src/pages/es6/es6.es6'
     }
 }
 
@@ -111,6 +113,16 @@ var pages = [
         filename: 'layout.html',
         template: 'src/pages/layout/layout.html',
         chunks: 'layout'
+    },
+    {
+        filename: 'js.html',
+        template: 'src/pages/js/js.html',
+        chunks: 'js'
+    },
+    {
+        filename: 'es6.html',
+        template: 'src/pages/es6/es6.html',
+        chunks: 'es6'
     }
 ]
 pages.forEach(function(page) {
