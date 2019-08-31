@@ -1,7 +1,7 @@
 {
-  "name": "play-webpack-es6",
+  "name": "play-fe",
   "version": "1.0.0",
-  "description": "import module && es6 feature for multipages project with webpack",
+  "description": "play html/css/js es6",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
