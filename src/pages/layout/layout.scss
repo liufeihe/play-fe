@@ -3,3 +3,74 @@
 body {
     background-color: $bgGrey;
 }
+h2{
+    border-top: $borderStyle;
+    margin: 50px 0 10px;
+    padding: 10px 0;
+}
+
+div.box{
+    border: 1px solid;
+    padding: 10px;
+}
+div.box-item{
+    border: 1px solid;
+    height: 300px;
+}
+div.box-item.item1{
+    background-color: black;
+}
+div.box-item.item2{
+    background-color: aqua;
+}
+div.box-item.item3{
+    background-color: peru;
+}
+
+div.box1.float{
+    div.item1{
+        float: left;
+        width: 200px;
+    }
+    div.item2{
+        overflow: hidden;
+    }
+}
+div.box1.flex{
+    display: flex;
+    div.item1{
+        flex: 0 0 200px;
+    }
+    div.item2{
+        flex: 1 1 auto;
+    }
+}
+
+div.box2.float{
+    div.item1{
+        float: left;
+        width: 200px;
+    }
+    div.item2{
+        overflow: hidden;
+        margin-right: 202px;
+    }
+    div.item3{
+        float: right;
+        width: 200px;
+        margin-top: -302px;
+    }
+}
+div.box2.flex{
+    display: flex;
+    div.item1{
+        flex: 0 0 200px;
+    }
+    div.item2{
+        flex: 1 1 auto;
+    }
+    div.item3{
+        flex: 0 0 200px;
+    }
+}
+

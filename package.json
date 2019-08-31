@@ -8,16 +8,6 @@
     "build": "webpack --config build/webpack.dev.conf.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/liufeihe/play-webpack-es6.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/liufeihe/play-webpack-es6/issues"
-  },
-  "homepage": "https://github.com/liufeihe/play-webpack-es6#readme",
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-transform-runtime": "^7.5.5",
