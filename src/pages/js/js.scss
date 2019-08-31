@@ -1,0 +1,10 @@
+@import '../../assets/scss/variables.scss';
+
+body {
+    background-color: $bgGrey;
+}
+h2{
+    border-top: $borderStyle;
+    margin: 50px 0 10px;
+    padding: 10px 0;
+}
