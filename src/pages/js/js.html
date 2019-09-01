@@ -20,8 +20,16 @@
         
 
         <h2>节流</h2>
+        <p>下次的点击会被上次的定时器block，直到定时器到期，所以持续触发变为定时触发</p>
+        <button id="jieliu">+1</button>
+        <button id="jieliu2">+1</button>
+        <span id="jieliu-txt"></span>
 
         <h2>防抖</h2>
+        <p>下次的点击会清掉上次的定时器，同时设置本次的定时器，所以持续触发时仅仅发生一次</p>
+        <button id="fangdou">+1</button>
+        <button id="fangdou2">+1</button>
+        <span id="fangdou-txt"></span>
 
         <h2>链式调用</h2>
 

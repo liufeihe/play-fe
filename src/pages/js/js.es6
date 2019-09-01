@@ -1,6 +1,82 @@
 import {getCountData, incrCountData} from '../../modules/data.es6'
 import './js.scss'
 
+let count = 0;
+let count_fd = 0;
+
+function jieliu(func, wait){
+    let timeout;
+    return function(){
+        let args = arguments;
+        let context = this;
+        
+        if(!timeout) {
+            timeout = setTimeout(function(){
+                timeout = null;
+                func.apply(context, [...args])
+            }, wait);
+        }
+
+    }
+}
+
+function jieliu2(func, wait){// execute first, then jieliu
+    let timeout;
+    return function(){
+        let context = this;
+        let args = arguments;
+
+        if (!timeout) {
+            func.apply(context, [...args]);
+            timeout = setTimeout(function(){
+                timeout = null;
+            }, wait);
+        }
+    }
+}
+
+function addCount(){
+    count += 1;
+    $('#jieliu-txt').text(count);
+}
+
+function fangdou(func, wait){
+    let timeout;
+    return function(){
+        let args = arguments;
+        let context = this;
+        if (timeout){
+            clearTimeout(timeout);
+        }
+        timeout = setTimeout(function(){
+            func.apply(context, [...args])
+        }, wait);
+    }
+}
+function fangdou2(func, wait){
+    let timeout;
+    return function(){
+        let args = arguments;
+        let context = this;
+        if (timeout) {
+            clearTimeout(timeout);
+        }
+        let callNow = !timeout;
+        timeout = setTimeout(function(){
+            timeout = null;
+        }, wait);
+        if (callNow) {
+            func.apply(context, [...args]);
+        }
+    }
+}
+
+function addCount_fd(){
+    count_fd += 1;
+    $('#fangdou-txt').text(count_fd);
+}
+
+
 $(document).ready(function(){
     let bindClick = function(){
         $('button.module1-click').click(function(){
@@ -10,6 +86,28 @@ $(document).ready(function(){
         $('button.module2-click').click(function(){
             incrCountData();
             setCountStr();
+        });
+
+        let addCountAfterJieliu = jieliu(addCount, 1000);
+        $('#jieliu').click(function(){
+            // addCount();
+            addCountAfterJieliu();
+        });
+        let addCountAfterJieliu2 = jieliu2(addCount, 1000);
+        $('#jieliu2').click(function(){
+            // addCount();
+            addCountAfterJieliu2();
+        });
+
+        let addCoundAfterFangdou = fangdou(addCount_fd, 1000);
+        $('#fangdou').click(function(){
+            // addCount_fd();
+            addCoundAfterFangdou();
+        });
+        let addCoundAfterFangdou2 = fangdou2(addCount_fd, 1000);
+        $('#fangdou2').click(function(){
+            // addCount_fd();
+            addCoundAfterFangdou2();
         });
     },
     setCountStr = function(){
@@ -50,22 +148,5 @@ Function.prototype.myBind = function(context){
         } else {
             return _this.apply(context, args.concat(...arguments));
         }
-    }
-}
-
-function jieliu(func, wait){
-    let timeout;
-    return function(){
-        let args = arguments;
-        let context = this;
-        
-        let callnow = !timeout;
-        if(!timeout) {
-            timeout = setTimeout(function(){
-                timeout = null;
-                func.apply(context, [...args])
-            }, wait);
-        }
-
     }
 }
