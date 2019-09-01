@@ -76,6 +76,39 @@ function addCount_fd(){
     $('#fangdou-txt').text(count_fd);
 }
 
+class Person {
+    constructor(name){
+        this.name = name;
+    }
+    sleep(time){
+        this.blockTime(time);
+        console.log(this.name+' sleep '+time+' seconds.');
+        return this;
+    }
+    eat(){
+        console.log(this.name+' eat');
+        return this;
+    }
+    walk(time){
+        this.blockTime(time);
+        console.log(this.name+' walk '+time+' seconds.');
+        return this;
+    }
+    rest(time){
+        this.blockTime(time);
+        console.log(this.name+' rest '+time+' seconds.');
+        return this;
+    }
+    blockTime(time){
+        let timeout = time*1000;
+        let now = new Date();
+        let pre = now;
+        while(now-pre<timeout){
+            now = new Date();
+        }
+    }
+}
+
 
 $(document).ready(function(){
     let bindClick = function(){
@@ -108,6 +141,10 @@ $(document).ready(function(){
         $('#fangdou2').click(function(){
             // addCount_fd();
             addCoundAfterFangdou2();
+        });
+
+        $('#link-call').click(function(){
+            new Person('peter').sleep(5).eat().walk(5).rest(3);
         });
     },
     setCountStr = function(){
